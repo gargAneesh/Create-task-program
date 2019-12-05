@@ -1,0 +1,18 @@
+from sympy import symbols
+x, y = symbols('x y')
+q_or_l = input("Quadratic (ax^2+bx+c), or linear (mx+b)? ")
+if q_or_l == 'quadratic' or 'Quadratic':
+    a = int(input("Choose an 'a' value "))
+    b = int(input("Choose a 'b' value "))
+    c = int(input("Choose a 'c' value "))
+    exp = (a*x)**2 + b*x +c
+    print("Your equation is ", exp)
+    exp2 = exp.subs(x,int(input("Choose a value for 'x' ")))
+    print("The solution to your equation is ", exp2)
+elif q_or_l == 'linear' or 'Linear':
+    m = int(input("Choose a 'm' value"))
+    b = int(input("Choose a 'b' value"))
+    eqn = m*x + b
+    print("Your equation is ", eqn)
+    eqn2 = eqn.subs(x,int(input("Choose a value for 'x' ")))
+    print("The solution to your equation is ", eqn2)
