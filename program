@@ -2,7 +2,7 @@ from sympy import symbols
 x, y = symbols('x y')
 import math
 
-func = input("Welcome to the math calculator! Choose what type of math function you would like to do: an equation (for example, a linear equation in the form mx + b), the pythagorean theorem, or a calculator (not scientific). ")
+func = input("Welcome to the math calculator! Choose what type of math function you would like to do: an equation (for example, a linear equation in the form mx + b), the pythagorean theorem, the quadratic formula, or a calculator (not scientific). ")
 
 if func == 'equation':
   q_or_l = input("Quadratic (ax^2+bx+c), or linear (mx+b)? ")
@@ -41,8 +41,35 @@ elif func == 'pythagorean theorem':
     z = int(input("What is the value of the second leg? "))
     d = math.sqrt((q**2)+(z**2))
     print("The hypotenuse has length ", d)
-  if n == 'leg'
+  if n == 'leg':
     s = int(input("What is the value of the hypotenuse? "))
     e = int(input("What is the value of the other leg? "))
     r = math.sqrt((s**2)-(e**2))
     print("The leg has length ", r)
+
+elif func == 'calculator':
+  q = input("What do you want to be calculated?(For exponential calculations use **followed by the number. ex: 2**3 = 8) ")
+  print("The solution is:")
+  print(eval(q))
+  z = 0
+  while z < 2:
+    again = input("Go again? ")
+    z = z + 1
+    if again  == 'yes':
+      wqe = input("What do you want to be calculated?(For exponential calculations use **followed by the number. ex: 2**3 = 8) ")
+      print("The solution is: ")
+      print(eval(wqe))
+    elif again == 'no':
+      print("Goodbye")
+
+
+elif func == 'quadratic formula':
+  a = int(input("What is the 'a' value of the equation? "))
+  b = int(input("What is the 'b' value of the equation? "))
+  c = int(input("What is the 'c' value of the equation? "))
+  s1 = -b + math.sqrt((b**2) - (4*a*c))
+  s2 = s1/2*a
+  print("The solution to the equation, when equal to 0, is ", s2)
+  s3 = -b - math.sqrt((b**2) - (4*a*c))
+  s4 = s1/2*a
+  print("The solution to the equation, when equal to 0, is ", s4)
