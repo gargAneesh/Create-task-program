@@ -1,8 +1,9 @@
 from sympy import symbols
 x, y = symbols('x y')
 import math
+import sys
 
-func = input("Welcome to the math calculator! Choose what type of math function you would like to do: an equation (for example, a linear equation in the form mx + b), the pythagorean theorem, the quadratic formula, or a calculator (not scientific). ")
+func = input("Welcome to the math calculator! Choose what type of math operation you would like to do: an equation (for example, a linear equation in the form mx + b), the pythagorean theorem, the quadratic formula, or a calculator (not scientific). ")
 
 if func == 'equation':
   q_or_l = input("Quadratic (ax^2+bx+c), or linear (mx+b)? ")
@@ -67,9 +68,16 @@ elif func == 'quadratic formula':
   a = int(input("What is the 'a' value of the equation? "))
   b = int(input("What is the 'b' value of the equation? "))
   c = int(input("What is the 'c' value of the equation? "))
-  s1 = -b + math.sqrt((b**2) - (4*a*c))
-  s2 = s1/2*a
-  print("The solution to the equation, when equal to 0, is ", s2)
-  s3 = -b - math.sqrt((b**2) - (4*a*c))
-  s4 = s1/2*a
-  print("The solution to the equation, when equal to 0, is ", s4)
+  while True:
+    try:
+      s1 = -b + (math.sqrt((b**2) - (4*a*c)))
+      s2 = s1/2*a
+      s3 = -b - math.sqrt((b**2) - (4*a*c))
+      s4 = s3/2*a
+      print("The first solution to the equation, when equal to 0, is ", s4)
+      print("The second solution to the equation, when equal to 0, is ", s2)
+      break
+    except ValueError:
+      print("There was no real solution to your equation.")
+      break
+
