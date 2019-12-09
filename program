@@ -1,46 +1,68 @@
+# tool that allows to solve for 'x'
 from sympy import symbols
 x, y = symbols('x y')
+# library for special math functions such as square root
 import math
-import sys
 
-func = input("Welcome to the math calculator! Choose what type of math operation you would like to do: an equation (for example, a linear equation in the form mx + b), the pythagorean theorem, the quadratic formula, or a calculator (not scientific). ")
+func = input("Welcome to the math calculator! Choose what type of math operation you would like to do: an equation (for example, a linear equation in the form mx + b), the pythagorean theorem, the quadratic formula, or a calculator. ")
 
+# user chooses the type of equation
 if func == 'equation':
   q_or_l = input("Quadratic (ax^2+bx+c), or linear (mx+b)? ")
+  # if user chose quadratic equation
   if q_or_l == 'quadratic':
+      # user chooses values to supplement into shell of quadratic equation
       a = int(input("Choose an 'a' value "))
       b = int(input("Choose a 'b' value "))
       c = int(input("Choose a 'c' value "))
+      # substitutes users chosen values into shell of quadratic equation
       exp = a*(x**2) + b*x +c
+      # shows users equation
       print("Your equation is ", exp)
+      # allows user to 'plug' in values for the 'x' in the equation
       exp2 = exp.subs(x,int(input("Choose a value for 'x' ")))
+      # prints solution to equation
       print("The solution to your equation is ", exp2)
+  # if user chose a linear equation
   elif q_or_l == 'linear':
+      # user chooses values to be substituted into the equation
       m = int(input("Choose a 'm' value "))
       b = int(input("Choose a 'b' value "))
+      # the equation is formed using the user's values put into the shell
       eqn = m*x + b
+      # shows user their equation
       print("Your equation is ", eqn)
+      # prompts user for x-value
       eqn2 = eqn.subs(x,int(input("Choose a value for 'x' ")))
       print("The solution to your equation is ", eqn2)
+  # loop to prompt user if they would like to resuse their equation after each use
   z = 0
   while z < 2:
     asd = input("Do you want to use the calculator again? ")
+    # '1' added to the variable, z, so that the loop is not infinite. Since the condition keeps z less than 2, it will prompt the user again after each run
     z = z + 1
     if asd == 'yes':
+      # asks user which type of equation they used, so the program will 'know' which variable to use (since the linear and quadratic equations used different variables tostore the equations)
       wqe = input("Was your equation quadratic or linear? ")
       if wqe == 'quadratic':
+        # solves equation
         exp2 = exp.subs(x,int(input("Choose a value for 'x' ")))
         print("The solution to your equation is ", exp2)
       elif wqe == 'linear':
+        # solves equation
         eqn2 = eqn.subs(x,int(input("Choose a value for 'x' ")))
         print("The solution to your equation is ", eqn2)
 
 elif func == 'pythagorean theorem':
+  # determines what to calculate
   n = input("Are you tying to calculate for the hypotenuse or a leg? ")
   if n == 'hypotenuse':
+    # gets values of sides
     q = int(input("What is the value of the first leg? "))
     z = int(input("What is the value of the second leg? "))
+    # solves
     d = math.sqrt((q**2)+(z**2))
+    # shows solution
     print("The hypotenuse has length ", d)
   if n == 'leg':
     s = int(input("What is the value of the hypotenuse? "))
@@ -49,22 +71,25 @@ elif func == 'pythagorean theorem':
     print("The leg has length ", r)
 
 elif func == 'calculator':
-  q = input("What do you want to be calculated?(For exponential calculations use **followed by the number. ex: 2**3 = 8) ")
+  q = input("What do you want to be calculated?(For exponential calculations use **followed by the number. ex: 2**3 = 8. You can use this for logarithms as well if you use a fractional exponent.) ")
   print("The solution is:")
+  # takes user input and solves
   print(eval(q))
   z = 0
+  # same loop used as before, which will prompt the user if they want to go again
   while z < 2:
     again = input("Go again? ")
     z = z + 1
     if again  == 'yes':
+      # solves again
       wqe = input("What do you want to be calculated?(For exponential calculations use **followed by the number. ex: 2**3 = 8) ")
       print("The solution is: ")
       print(eval(wqe))
     elif again == 'no':
       print("Goodbye")
 
-
 elif func == 'quadratic formula':
+  # determines value from user for substituting
   a = int(input("What is the 'a' value of the equation? "))
   b = int(input("What is the 'b' value of the equation? "))
   c = int(input("What is the 'c' value of the equation? "))
@@ -74,10 +99,12 @@ elif func == 'quadratic formula':
       s2 = s1/2*a
       s3 = -b - math.sqrt((b**2) - (4*a*c))
       s4 = s3/2*a
+      # shows both solutions to equation, if there are any
       print("The first solution to the equation, when equal to 0, is ", s4)
       print("The second solution to the equation, when equal to 0, is ", s2)
       break
     except ValueError:
+      # if the solution is not possible, resulting in ValueError, this will be displayed
       print("There was no real solution to your equation.")
+      # ends program (prevents infinite looping)
       break
-
