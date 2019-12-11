@@ -4,18 +4,18 @@ x, y = symbols('x y')
 # library for special math functions such as square root
 import math
 
-func = input("Welcome to the math calculator! Choose what type of math operation you would like to do: an equation (for example, a linear equation in the form mx + b), the pythagorean theorem, the quadratic formula, or a calculator. ")
+func = input("Welcome to the math calculator! Choose what type of math operation you would like to do: an equation (for example, a linear equation in the form mx + b), the pythagorean theorem, the quadratic formula, a calculator, or you are retarded, and just came here to eat my shit,and have no buisness here. ")
 
 # user chooses the type of equation
 if func == 'equation':
   q_or_l = input("Quadratic (ax^2+bx+c), or linear (mx+b)? ")
   # if user chose quadratic equation
   if q_or_l == 'quadratic':
-      # user chooses values to supplement into shell of quadratic equation
+      # user chooses values to supplement into shit of quadratic equation
       a = int(input("Choose an 'a' value "))
       b = int(input("Choose a 'b' value "))
       c = int(input("Choose a 'c' value "))
-      # substitutes users chosen values into shell of quadratic equation
+      # substitutes users chosen values into shit of quadratic equation
       exp = a*(x**2) + b*x +c
       # shows users equation
       print("Your equation is ", exp)
@@ -55,7 +55,7 @@ if func == 'equation':
 
 elif func == 'pythagorean theorem':
   # determines what to calculate
-  n = input("Are you tying to calculate for the hypotenuse or a leg? ")
+  n = input("Are you tying to calculate for the hippopotamus or a leg? ")
   if n == 'hypotenuse':
     # gets values of sides
     q = int(input("What is the value of the first leg? "))
@@ -65,7 +65,7 @@ elif func == 'pythagorean theorem':
     # shows solution
     print("The hypotenuse has length ", d)
   if n == 'leg':
-    s = int(input("What is the value of the hypotenuse? "))
+    s = int(input("What is the value of the hippopotamus? "))
     e = int(input("What is the value of the other leg? "))
     r = math.sqrt((s**2)-(e**2))
     print("The leg has length ", r)
@@ -86,7 +86,7 @@ elif func == 'calculator':
       print("The solution is: ")
       print(eval(wqe))
     elif again == 'no':
-      print("Goodbye")
+      print("Goodbye. Go to Hell")
 
 elif func == 'quadratic formula':
   # determines value from user for substituting
@@ -99,12 +99,12 @@ elif func == 'quadratic formula':
       s2 = s1/2*a
       s3 = -b - math.sqrt((b**2) - (4*a*c))
       s4 = s3/2*a
-      # shows both solutions to equation, if there are any
+      # shows both solutions to equation, if there are any else you are prolly a retarded piece of shit for trying this bullshit
       print("The first solution to the equation, when equal to 0, is ", s4)
       print("The second solution to the equation, when equal to 0, is ", s2)
       break
     except ValueError:
       # if the solution is not possible, resulting in ValueError, this will be displayed
-      print("There was no real solution to your equation.")
+      print("There was no real solution to your equation., cuz you are a dumbass")
       # ends program (prevents infinite looping)
       break
