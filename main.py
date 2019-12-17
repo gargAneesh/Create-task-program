@@ -9,10 +9,11 @@ func = input("Welcome to the math calculator! Choose what type of math operation
 # user chooses the type of equation
 if func == 'equation':
 
-  q_or_l = input("Quadratic (ax^2+bx+c), or linear (mx+b)? ")
+  q_or_l = input("Quadratic (ax^2+bx+c), or li
+  near (mx+b)? ")
   # if user chose quadratic equation
   if q_or_l == 'quadratic':
-      # creates class to handle a,b, and c values
+      # creates class to handle a,b, and c values sex
       class quadratic:
         def __init__(self, a, b, c):
           self.a = a
