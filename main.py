@@ -13,7 +13,7 @@ if func == 'equation':
   near (mx+b)? ")
   # if user chose quadratic equation
   if q_or_l == 'quadratic':
-      # creates class to handle a,b, and c values sex
+      # creates class to handle a,b, and c values
       class quadratic:
         def __init__(self, a, b, c):
           self.a = a
